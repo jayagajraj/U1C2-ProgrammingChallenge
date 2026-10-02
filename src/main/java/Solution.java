@@ -56,19 +56,31 @@ public class Solution {
    
     public double adjustDigits(double userDouble) {
         // remove 0.0 and return your answer
-        double userDouble100 =(userDouble%100 +1) *100;
+       double numone = (int)(userDouble/100);
+            numone += 1;
+            numone %= 10;
+            numone *= 100;
+        double numtwo = (int)(userDouble/10);
+        numtwo %= 10;
+            numtwo += 1;
+            numtwo %= 10;
+            numtwo *= 10;
+        double numthree = (int)(userDouble);
+        numthree %= 10;
+        numthree += 1;
+        numthree %= 10;
+        double numfour = (int)(userDouble * 10);
+        numfour %= 10;
+        numfour += 1;
+        numfour %= 10;
+        numfour /= 10;
+        double numfive = (int)(userDouble * 100);
+        numfive %= 10;
+        numfive += 1;
+        numfive %= 10;
+        numfive /= 100;
+        return (numone + numtwo + numthree + numfour + numfive);
 
-        double userDouble10 = (userDouble%10 +1) *10;
-
-        double userDouble1 = (userDouble%1 +1);
-
-        double userDoublePoint1 = (userDouble%0.1 +1 ) *.1;
-
-        double userDoublePoint01 = (userDouble%.01 +1) *.01;
-
-        double adjustDigits = (userDouble100 + userDouble10 + userDouble1 + userDoublePoint1 +userDoublePoint01);
-
-        return adjustDigits;
     }
 
     public static void main(String[] args) {
